@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 std::vector<int> int2vec(int i) {
   std::vector<int> vec;
