@@ -2,21 +2,6 @@
 #include <vector>
 #include <algorithm>
 
-int schoolAddition(std::vector<int> i1, std::vector<int> i2, int b) {
-  int sum;
-  return sum;
-}
-
-int karatsubaMultiplication(std::vector<int> i1, std::vector<int> i2, int b) {
-  int product;
-  return product;
-}
-
-int ratio(std::vector<int> i1, std::vector<int> i2, int b) {
-  int quotient;
-  return quotient;
-}
-
 std::vector<int> int2vec(int i) {
   std::vector<int> vec;
   while (i > 0) {
@@ -29,10 +14,42 @@ std::vector<int> int2vec(int i) {
 int vec2int(std::vector<int> vec) {
   int i = 0;
   for (size_t j = 0; j < vec.size(); j++) {
-    std::cout << vec[j] << " ";
     i += vec[j] * pow(10, j);
   }
   return i;
+}
+
+int safeGet(std::vector<int> vec, size_t i) {
+  return (i < vec.size()) ? vec[i] : 0;
+}
+
+int schoolAddition(std::vector<int> i1, std::vector<int> i2, int b) {
+  size_t length = std::max(i1.size(), i2.size());
+  int carry = 0;
+  std::vector<int> ans(length + 1, 0);
+  for (size_t i = 0; i < length + 1; i++) {
+    int t1 = safeGet(i1, i);
+    int t2 = safeGet(i2, i);
+    int sum = t1 + t2 + carry;
+    if (sum >= b) {
+      carry = 1;
+      sum = sum - b;
+    } else {
+      carry = 0;
+    }
+    ans[i] = sum;
+  }
+  return vec2int(ans);
+}
+
+int karatsubaMultiplication(std::vector<int> i1, std::vector<int> i2, int b) {
+  int product = 0;
+  return product;
+}
+
+int ratio(std::vector<int> i1, std::vector<int> i2, int b) {
+  int quotient = 0;
+  return quotient;
 }
 
 int main() {
