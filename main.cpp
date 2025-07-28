@@ -56,7 +56,6 @@ int main() {
   std::string i1, i2;
   int b;
   std::cin >> i1 >> i2 >> b;
-  std::cout << i1 << " " << i2 <<  " " << b << std::endl;
   std::vector<int> vec1 = string2vec(i1);
   std::vector<int> vec2 = string2vec(i2);
   std::vector<int> sum = schoolAddition(vec1, vec2, b);
