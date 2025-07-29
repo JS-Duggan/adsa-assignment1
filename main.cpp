@@ -117,8 +117,10 @@ std::vector<int> karatsubaMultiplication(std::vector<int> i1, std::vector<int> i
 
   // sum together
   std::vector<int> ans = schoolAddition(z2, schoolAddition(z1, z0, b), b);
-  
-  if(!ans.empty() && ans.back() == 0) ans.pop_back();
+  while (true) {
+    if(!ans.empty() && ans.back() == 0) ans.pop_back();
+    else break;
+  }
   return ans;
 }
 
